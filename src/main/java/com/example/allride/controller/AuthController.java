@@ -33,3 +33,37 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 }
+
+
+
+
+
+
+
+//    @PostMapping("/signup")
+//    public User signup(@RequestBody SignupRequest request) {
+//        User user = User.builder()
+//                .email(request.getEmail())
+//                .password(request.getPassword())
+//                .fullName(request.getFullName())
+//                .phone(request.getPhone())
+//                .role(request.getRole())
+//                .build();
+//
+//        return authService.signup(user);
+//    }
+
+
+/*
+    @PostMapping("/signup")
+    public SignupResponse signup(@RequestBody SignupRequest request) {
+        return authService.signup(request);
+    }
+*/
+
+/*
+    @PostMapping("/login")
+    public User login(@RequestBody LoginRequest request) {
+        return authService.login(request);
+    }
+*/
