@@ -23,6 +23,7 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<SignupResponse> signup(@RequestBody SignupRequest request) {
+        System.out.println("signup called");
         SignupResponse response= authService.signup(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

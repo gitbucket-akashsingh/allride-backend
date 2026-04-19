@@ -10,7 +10,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+/*
+ To implement a custom UserDetailsService in Spring Security,
+ you must create a class that implements the UserDetailsService interface
+ and override its single method: loadUserByUsername(String username).
 
+This service is a core component used by the DaoAuthenticationProvider to retrieve user-specific data
+from a data source (like a database) during the authentication process.
+ */
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
