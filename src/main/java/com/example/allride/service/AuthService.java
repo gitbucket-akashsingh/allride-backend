@@ -6,6 +6,7 @@ import com.example.allride.entity.User;
 import com.example.allride.repository.UserRepository;
 import com.example.allride.dto.request.SignupRequest;
 import com.example.allride.dto.response.SignupResponse;
+import com.example.allride.security.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,6 +20,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
     public SignupResponse signup(SignupRequest request) {
 
@@ -46,6 +48,13 @@ public class AuthService {
 
     public LoginResponse login(LoginRequest request) {
 
+//        UsernamePasswordAuthenticationToken authRequestToken = new UsernamePasswordAuthenticationToken(
+//                                                               request.getEmail(),
+//                                                               request.getPassword()
+//                                                              );
+//
+//        Authentication authentication = authenticationManager.authenticate(authRequestToken);
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -64,6 +73,7 @@ public class AuthService {
         return LoginResponse.builder()
                 .fullName(user.getFullName())
                 .message("Login successful! Welcome "+user.getFullName())
+                .token(jwtService.generateToken(user.getEmail()))
                 .build();
     }
 }
