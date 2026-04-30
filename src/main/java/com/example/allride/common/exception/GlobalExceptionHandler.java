@@ -1,6 +1,6 @@
 package com.example.allride.common.exception;
 
-import com.example.allride.auth.dto.ErrorResponse;
+import com.example.allride.auth.dto.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

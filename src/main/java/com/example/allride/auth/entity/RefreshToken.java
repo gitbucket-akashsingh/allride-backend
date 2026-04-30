@@ -27,6 +27,10 @@ public class RefreshToken {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "session_id")
+    private UserSession session;
+
 
 
 }
