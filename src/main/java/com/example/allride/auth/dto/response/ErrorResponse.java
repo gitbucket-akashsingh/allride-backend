@@ -1,4 +1,4 @@
-package com.example.allride.auth.dto;
+package com.example.allride.auth.dto.response;
 
 import lombok.*;
 

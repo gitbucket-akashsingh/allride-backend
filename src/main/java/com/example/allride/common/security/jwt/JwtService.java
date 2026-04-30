@@ -27,11 +27,12 @@ public class JwtService {
     private long expirationTime;
 
 
-    public String generateAccessToken(User user) {
+    public String generateAccessToken(User user, Long sessionId) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("role", user.getRole().name());
         claims.put("userId", user.getId());
         claims.put("type", "access_token");
+        claims.put("sid", sessionId);
         return createToken(claims, user.getEmail(), expirationTime);
     }
 
