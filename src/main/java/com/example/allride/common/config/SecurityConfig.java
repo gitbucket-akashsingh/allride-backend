@@ -46,6 +46,8 @@ public class SecurityConfig {
                         .requestMatchers("/driver/**").hasRole("DRIVER")
                         // Admin APIs
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        // Swagger Tools
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated() // Don't Allow all other endpoints without login
                 )
                 .exceptionHandling(ex -> ex
