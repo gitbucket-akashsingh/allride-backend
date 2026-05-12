@@ -1,6 +1,8 @@
 package com.example.allride.common.exception;
 
-import com.example.allride.auth.dto.response.ErrorResponse;
+import com.example.allride.auth.authentication.exception.BadCredentialsException;
+import com.example.allride.auth.common.response.ErrorResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -47,6 +49,26 @@ public class GlobalExceptionHandler {
                 .build();
 
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(BaseException.class)
+    public ResponseEntity<ApiError> handleBaseException(
+            BaseException ex,
+            HttpServletRequest request
+    ) {
+
+        ApiError error = ApiError.builder()
+                .timestamp(LocalDateTime.now())
+                .status(ex.getStatus().value())
+                .error(ex.getStatus().getReasonPhrase())
+                .code(ex.getErrorCode().name())
+                .message(ex.getMessage())
+                .path(request.getRequestURI())
+                .build();
+
+        return ResponseEntity
+                .status(ex.getStatus())
+                .body(error);
     }
 }
 

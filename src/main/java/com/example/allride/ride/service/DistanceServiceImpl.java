@@ -1,5 +1,8 @@
 package com.example.allride.ride.service;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class DistanceServiceImpl implements DistanceService{
 
     @Override

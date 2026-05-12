@@ -1,11 +1,9 @@
 package com.example.allride.driver.controller;
 
-import com.example.allride.driver.DriverService;
+import com.example.allride.driver.service.DriverService;
 import com.example.allride.driver.dto.LocationDto;
-import com.example.allride.driver.entity.Driver;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

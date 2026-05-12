@@ -1,6 +1,6 @@
 package com.example.allride.ride.controller;
 
-import com.example.allride.auth.entity.User;
+import com.example.allride.auth.authentication.entity.User;
 import com.example.allride.ride.service.RideService;
 import com.example.allride.ride.dto.RideRequestDto;
 import com.example.allride.ride.dto.RideResponseDto;
